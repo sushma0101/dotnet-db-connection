@@ -1,0 +1,25 @@
+using Microsoft.AspNetCore.Mvc;
+using System.Data.SqlTypes;
+
+namespace databaseconnection.Controllers
+{
+    public class RegistrationController : Controller
+    {
+        public IActionResult ViewRegistration()
+        {
+            string connectionString = ""
+                SqlConnection connection = new SqlConnection(connectionString);
+            connection.Open();
+            string script = "select * from Registration";
+            SqlCommand command = new SqlCommand(script, connection);
+            var reader = command.ExecuteReader();
+            List<RegistrationModel> registrationModels = new List<RegistrationModel>();
+            while (reader.Read())
+            {
+                RegistrationModel.registrationModel = new RegistrationModel();
+                registrationModels.Id = Convert.ToInt32()
+            }
+            return View();
+        }
+    }
+}
